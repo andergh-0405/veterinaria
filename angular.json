@@ -28,7 +28,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "outputMode": "browser",
+            "outputMode": "static",
             "ssr": false,
             "prerender": false
           },

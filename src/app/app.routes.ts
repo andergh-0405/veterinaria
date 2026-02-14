@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
 import { HomePage } from './features/home-page/home-page';
 import { Nosotros } from './features/nosotros/nosotros';
+import { Consultas } from './features/consultas/consultas';
+import { ServiciosPage } from './features/servicios-page/servicios-page';
+import { MascotasPage } from './features/mascotas-page/mascotas-page';
 
 export const routes: Routes = [
     //ruta inicial
     {path:'',component:HomePage},
-    {path:'nosotros',component:Nosotros},
+    {path:'consultas',component:Consultas},
+    {path:'servicios',component:ServiciosPage},
+    {path:'mascotas',component:MascotasPage},
 
     //Error 404
     //{path:'**', component:Pagina404}

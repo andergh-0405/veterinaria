@@ -28,10 +28,9 @@
             "styles": [
               "src/styles.css"
             ],
-            
-            "outputMode": "server",
+            "outputMode": "browser",
             "ssr": false,
-            "prerender":false
+            "prerender": false
           },
           "configurations": {
             "production": {

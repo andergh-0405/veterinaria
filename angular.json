@@ -28,8 +28,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "outputMode": "static",
-            "ssr": false,
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/main.server.ts"
+            },
             "prerender": false
           },
           "configurations": {

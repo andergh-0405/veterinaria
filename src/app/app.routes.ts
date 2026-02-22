@@ -4,6 +4,7 @@ import { Nosotros } from './features/nosotros/nosotros';
 import { Consultas } from './features/consultas/consultas';
 import { ServiciosPage } from './features/servicios-page/servicios-page';
 import { MascotasPage } from './features/mascotas-page/mascotas-page';
+import { Usuarios } from './features/usuarios/usuarios';
 
 export const routes: Routes = [
     //ruta inicial
@@ -11,6 +12,7 @@ export const routes: Routes = [
     {path:'consultas',component:Consultas},
     {path:'servicios',component:ServiciosPage},
     {path:'mascotas',component:MascotasPage},
+    {path: 'usuarios',component:Usuarios},
 
     //Error 404
     //{path:'**', component:Pagina404}

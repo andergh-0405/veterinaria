@@ -34,7 +34,7 @@
 
             <div class="flex items-center gap-4">
                 <div class="sm:flex sm:gap-4">
-                    <a class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm" href="#">
+                    <a class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm" routerLink="/login">
                         Login
                     </a>
 
@@ -43,6 +43,11 @@
                             Register
                         </a>
                     </div>
+
+                    <a  (click)="cerrarSesion()" class="rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm" routerLink="/login">
+                        Cerrar Sesion
+                    </a>
+                    
                 </div>
 
                 <div class="block md:hidden">

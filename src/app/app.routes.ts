@@ -5,9 +5,11 @@ import { Consultas } from './features/consultas/consultas';
 import { ServiciosPage } from './features/servicios-page/servicios-page';
 import { MascotasPage } from './features/mascotas-page/mascotas-page';
 import { Usuarios } from './features/usuarios/usuarios';
+import { Login } from './features/login/login';
 
 export const routes: Routes = [
     //ruta inicial
+    {path:'login',component:Login},
     {path:'',component:HomePage},
     {path:'consultas',component:Consultas},
     {path:'servicios',component:ServiciosPage},

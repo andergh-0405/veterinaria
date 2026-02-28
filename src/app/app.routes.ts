@@ -14,6 +14,6 @@ export const routes: Routes = [
     {path:'mascotas',component:MascotasPage},
     {path: 'usuarios',component:Usuarios},
 
-    //Error 404
+    
     //{path:'**', component:Pagina404}
 ];

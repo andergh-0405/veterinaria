@@ -2,16 +2,21 @@ import { Component, inject, signal } from '@angular/core';
 import { UsuarioService } from '../../services/usuario-service';
 import { Usuario } from '../../models/usuario';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-formulario',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './formulario.html',
   styleUrl: './formulario.css',
 })
 export class Formulario {
 
   private servicioUsuario = inject(UsuarioService);
+  public servicioAuth = inject(AuthService);
+
+
 
   //LISTA REACTIVA
   listaUsuarios = signal<Usuario[]>([]);
@@ -20,7 +25,9 @@ export class Formulario {
   nuevoUsuario: Usuario = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+      password: '',
+      rol: 'ROLE_VETERINARIO'
   }
 
   //PARA CONTRROLAR LA ETIQUETA DEL BOTON
@@ -48,6 +55,7 @@ export class Formulario {
       });
     }
     this.limpiarFormulario();
+  
 
   }
 
@@ -73,8 +81,16 @@ export class Formulario {
     this.nuevoUsuario = {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      password: '',
+      rol: 'ROLE_VETERINARIO'
     }
   }
+
+  hasUnsavedChanges(): boolean {
+    return this.editando || this.nuevoUsuario.name !== '' || this.nuevoUsuario.email !== '' || this.nuevoUsuario.phone !== '' || this.nuevoUsuario.password !== '';
+  }
+
+  
 
 }

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth-service';
+import { UsuarioService } from '../../services/usuario-service';
 
 
 @Component({
@@ -10,6 +12,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './panel-paciente.css',
 })
 export class PanelPaciente {
+
+  private servicioUsuario = inject(UsuarioService);
+  public servicioAuth = inject(AuthService);
+
   nombreFiltro = '';
   pacientes =[
     {

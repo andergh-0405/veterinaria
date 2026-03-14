@@ -22,6 +22,9 @@
                             <a routerLink="consultas" class="text-gray-500 transition hover:text-gray-500/75" href="#"> Consultas </a>
                         </li>
                         <li>
+                            <a routerLink="usuarios" class="text-gray-500 transition hover:text-gray-500/75" href="#"> Usuarios </a>
+                        </li>
+                        <li>
                             <a routerLink="mascotas" class="text-gray-500 transition hover:text-gray-500/75" > Mascotas </a>
                         </li>
 
@@ -38,11 +41,7 @@
                         Login
                     </a>
 
-                    <div class="hidden sm:flex">
-                        <a class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" routerLink="/usuarios">
-                            Register
-                        </a>
-                    </div>
+                    
 
                     <a  (click)="cerrarSesion()" class="rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm" routerLink="/login">
                         Cerrar Sesion

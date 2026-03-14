@@ -3,4 +3,6 @@ export interface Usuario{
     name: string;
     email: string;
     phone: string;
+    password: string;
+    rol: 'ROLE_ADMIN'|'ROLE_VETERINARIO'
 }

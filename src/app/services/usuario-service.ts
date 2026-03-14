@@ -9,7 +9,7 @@ import { Usuario } from '../models/usuario';
 export class UsuarioService {
 
   private http = inject(HttpClient);
-  private API_FIREBASE = 'https://comemtarios-cd474-default-rtdb.firebaseio.com/';
+  private API_FIREBASE = 'https://evaluacion1-4d2f9-default-rtdb.firebaseio.com/';
 
   //Metodo get
   getUsuarios(): Observable<Usuario[]> {

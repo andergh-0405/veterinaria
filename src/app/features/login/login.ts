@@ -20,11 +20,18 @@ export class Login {
 
 
   iniciarSesion() {
-    if (!this.email && !this.password) {
-      alert("Error al iniciar")
-      return  
-    } 
-      this.servicioAuth.login(this.email, this.password);
+    this.servicioAuth.login(this.email, this.password).subscribe(success => {
+      if(success){
+        alert('Bienvenido al sistema');
+        this.router.navigate(['/usuarios']);
+      }else{
+        alert('Credenciales incorrectas');
+      }
+    })
+  }
+  cerrarSesion() {
+    this.servicioAuth.logout();
+    alert('Sesion cerrada correctamente');
   }
 
 

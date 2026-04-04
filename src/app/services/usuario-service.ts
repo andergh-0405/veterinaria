@@ -9,11 +9,11 @@ import { Usuario } from '../models/usuario';
 export class UsuarioService {
 
   private http = inject(HttpClient);
-  private API_FIREBASE = 'https://evaluacion1-4d2f9-default-rtdb.firebaseio.com/';
+  private API_FIREBASE = 'http://localhost:8080/usuarios';
 
   //Metodo get
   getUsuarios(): Observable<Usuario[]> {
-    return this.http.get<{ [key: string]: Usuario }>(`${this.API_FIREBASE}/users.json`).pipe(
+    /*return this.http.get<{ [key: string]: Usuario }>(`${this.API_FIREBASE}/users.json`).pipe(
       map(respuestaFirebase => {
         if (!respuestaFirebase) {
           return [];
@@ -23,22 +23,29 @@ export class UsuarioService {
           return usuarioConId;
         })
       })
-    )
+    )*/ return this.http.get<Usuario[]>(`${this.API_FIREBASE}`);
   }
 
   //Metodo post
   postUsuario(usuario: Usuario):Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.API_FIREBASE}/users.json`,usuario);
+    return this.http.post<Usuario>(`${this.API_FIREBASE}/guardarUsuario`,usuario);
   }
 
   //Metodo PUT
   putUsuario(id:string, usuario:Usuario):Observable<Usuario> {
-    return this.http.put<Usuario>(`${this.API_FIREBASE}/users/${id}.json`,usuario);
+    return this.http.put<Usuario>(`${this.API_FIREBASE}/actualizarUsuario/${id}`,usuario);
   }
 
   //Metodo delete}
   deleteUsuario(id:string):Observable<void> {
-    return this.http.delete<void>(`${this.API_FIREBASE}/users/${id}.json`);
+    return this.http.delete<void>(`${this.API_FIREBASE}/eliminarUsuario/${id}`);
   }
+
+  //metodo para obtner solo el rol del usuario
+  /*getRolUsuario(id:string):Observable<string> {
+    return this.http.get<{ rol: string }>(`${this.API_FIREBASE}/users/${id}.json`).pipe(
+      map(respuesta => respuesta.rol)
+    );
+  }*/
 
 }

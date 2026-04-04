@@ -11,6 +11,9 @@ import path from 'path';
 import { PanelPaciente } from './shared/panel-paciente/panel-paciente';
 import { desactiveGuard, } from './guards/desactive-guard';
 import { Formulario } from './shared/formulario/formulario';
+import { guaMatchGuard } from './guards/gua-match-guard';
+import { features } from 'process';
+import { Dasboard } from './features/dasboard/dasboard';
 
 export const routes: Routes = [
     //ruta inicial
@@ -18,12 +21,15 @@ export const routes: Routes = [
     {path:'',component:HomePage, canActivateChild:[authGuard], children:[
         {path:'panel',component:PanelPaciente}
     ]},
-    {path:'consultas',component:Consultas},
+    {path:'consultas',component:Consultas,canMatch:[guaMatchGuard]},
     {path:'servicios',component:ServiciosPage},
     {path:'mascotas',component:MascotasPage},
     {path: 'usuarios',component:Usuarios,canActivate:[authGuard],canDeactivate:[desactiveGuard],children:[
         {path:'formulario',component:Formulario}
     ]},
+    {path:'dasboard',component:Dasboard,canMatch:[guaMatchGuard]},
+    
+
 
     
     //{path:'**', component:Pagina404}

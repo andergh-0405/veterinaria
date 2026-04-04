@@ -25,7 +25,7 @@ export class Formulario {
   nuevoUsuario: Usuario = {
     name: '',
     email: '',
-    phone: '',
+    phone: '', 
       password: '',
       rol: 'ROLE_VETERINARIO'
   }
@@ -90,6 +90,8 @@ export class Formulario {
   hasUnsavedChanges(): boolean {
     return this.editando || this.nuevoUsuario.name !== '' || this.nuevoUsuario.email !== '' || this.nuevoUsuario.phone !== '' || this.nuevoUsuario.password !== '';
   }
+
+ 
 
   
 

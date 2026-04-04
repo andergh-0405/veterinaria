@@ -10,7 +10,7 @@ export class PetService {
   
   private http = inject(HttpClient);
 
-  private API_PET = 'https://vasga-floze.github.io/docs-api-book/books';
+  private API_PET = 'https://www.mockdog.dev/api/dogs';
 
   getPets():Observable <RespuestaApi>{
     return this.http.get<RespuestaApi>(this.API_PET);

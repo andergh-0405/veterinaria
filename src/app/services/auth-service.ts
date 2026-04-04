@@ -5,6 +5,8 @@ import { getAuth, signInWithEmailAndPassword, signOut, User } from 'firebase/aut
 import { map, Observable } from 'rxjs';
 import { Usuarios } from '../features/usuarios/usuarios';
 import { UsuarioService } from './usuario-service';
+import { HttpClient } from '@angular/common/http';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root',
@@ -37,16 +39,15 @@ export class AuthService {
   }*/
 
   private servicioUsuario = inject(UsuarioService);
-
+    private http = inject(HttpClient);
   sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
 
-  rolActual = signal<string | null>(localStorage.getItem('rol'));
+  public rolActual = signal<string | null>(localStorage.getItem('rol'));
+  private API_LOGIN = 'http://localhost:8080/login';
 
   login(email: string, password: string): Observable<boolean> {
-    return this.servicioUsuario.getUsuarios().pipe(
-      map(usuarios => {
-        const usuarioCoincide = usuarios.find(u => u.email === email &&
-          u.password === password);
+    return this.http.post<Usuario | null>(this.API_LOGIN, { email, password }).pipe(
+      map(usuarioCoincide => {
         if (usuarioCoincide) {
           localStorage.setItem('sesion', 'true');
           localStorage.setItem('usuario', JSON.stringify(usuarioCoincide));

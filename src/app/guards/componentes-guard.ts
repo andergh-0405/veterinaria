@@ -8,7 +8,7 @@ export const componentesGuard: CanActivateChildFn = (childRoute, state) => {
   const router = inject(Router);
 
   if (servicioAuth.sesionIniciada()) {
-    return true;
+    
   }
 
 
